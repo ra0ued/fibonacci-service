@@ -35,7 +35,6 @@ class FibonacciController
         $from = $request->getQueryParams()['from'] ?? 0;
         $to = $request->getQueryParams()['to'] ?? 1;
 
-        /** @var FibonacciService $fibonacciService */
         $result = $this->fibonacciService->getFibonacci($from, $to) ?? 'Invalid input numbers';
 
         $payload = json_encode([
