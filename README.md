@@ -1,5 +1,7 @@
 # Simple Fibonacci Service
 
+[![Coverage Status](https://coveralls.io/repos/github/ra0ued/fibonacci-service/badge.svg?branch=main)](https://coveralls.io/github/ra0ued/fibonacci-service?branch=main)
+
 ## Install the Application
 
 Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 8.0 or newer.
