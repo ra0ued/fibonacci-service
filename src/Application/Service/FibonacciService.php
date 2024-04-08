@@ -22,7 +22,7 @@ class FibonacciService
             return null;
         }
 
-        $cacheKey = $from . '+' . $to;
+        $cacheKey = $from . '_' . $to;
 
         return $this->cache->get($cacheKey, function (ItemInterface $item) use ($from, $to): string {
             $item->expiresAfter(3600);
@@ -35,21 +35,18 @@ class FibonacciService
     {
         $firstNumber = 0;
         $secondNumber = 1;
-        $result = [];
+        $result = [$firstNumber, $secondNumber];
 
-        while (true) {
+        for ($i = 2; $i <= $to; $i++) {
             $nextNumber = $firstNumber + $secondNumber;
-
-            if ($nextNumber >= $from) {
-                $result[] = $nextNumber;
-            }
-
-            if ($nextNumber >= $to) {
-                return implode(', ', $result);
-            }
+            $result[] = $nextNumber;
 
             $firstNumber = $secondNumber;
             $secondNumber = $nextNumber;
         }
+
+        $result = array_slice($result, $from, ($to - $from) + 1);
+
+        return implode(', ', $result);
     }
 }

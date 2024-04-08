@@ -9,7 +9,6 @@ use App\Application\ResponseEmitter\ResponseEmitter;
 use App\Application\Service\FibonacciService;
 use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
-use Psr\Container\ContainerInterface;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
@@ -40,7 +39,7 @@ $container = $containerBuilder->build();
 
 $cache = new FilesystemAdapter();
 
-$container->set(FibonacciController::class, function () use ($cache){
+$container->set(FibonacciController::class, function () use ($cache) {
     return new FibonacciController(new FibonacciService($cache));
 });
 
