@@ -15,8 +15,10 @@ class FibonacciController
         $this->fibonacciService = $fibonacciService;
     }
 
-    public function fibonacci(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
+    public function fibonacci(
+        ServerRequestInterface $request,
+        ResponseInterface $response
+    ): ResponseInterface {
         if (!$this->isValid($request)) {
             $payload = json_encode([
                 'success' => false,
