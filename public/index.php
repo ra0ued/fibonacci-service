@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
+use App\Application\Controller\API\FibonacciController;
 use App\Application\Handlers\HttpErrorHandler;
 use App\Application\Handlers\ShutdownHandler;
 use App\Application\ResponseEmitter\ResponseEmitter;
+use App\Application\Service\FibonacciService;
 use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
+use Psr\Container\ContainerInterface;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -16,7 +20,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $containerBuilder = new ContainerBuilder();
 
 if (false) { // Should be set to true in production
-	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
+    $containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
 }
 
 // Set up settings
@@ -33,6 +37,12 @@ $repositories($containerBuilder);
 
 // Build PHP-DI Container instance
 $container = $containerBuilder->build();
+
+$cache = new FilesystemAdapter();
+
+$container->set(FibonacciController::class, function () use ($cache){
+    return new FibonacciController(new FibonacciService($cache));
+});
 
 // Instantiate the app
 AppFactory::setContainer($container);

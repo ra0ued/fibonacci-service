@@ -1,5 +1,5 @@
 {
-    "name": "Simple Fibonacci Service",
+    "name": "ra0ued/fibonacci-service",
     "description": "Fibonacci Service which can help to get a job at Lesta Games",
     "keywords": [
         "microframework",
@@ -12,18 +12,19 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "ra0ued",
+            "name": "test",
             "email": "ra0ued@zabtech.ru",
             "homepage": "https://ra0ued.ru"
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.3",
         "ext-json": "*",
         "monolog/monolog": "^2.8",
         "php-di/php-di": "^6.4",
         "slim/psr7": "^1.5",
-        "slim/slim": "^4.10"
+        "slim/slim": "^4.10",
+        "symfony/cache": "^7.0"
     },
     "require-dev": {
         "jangregor/phpstan-prophecy": "^1.0.0",
