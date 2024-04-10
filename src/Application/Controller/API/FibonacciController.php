@@ -19,23 +19,10 @@ class FibonacciController
         ServerRequestInterface $request,
         ResponseInterface $response
     ): ResponseInterface {
-        if (!$this->isValid($request)) {
-            $payload = json_encode([
-                'success' => false,
-                'error' => 'Invalid request'
-            ]);
-
-            $response->getBody()->write($payload);
-
-            return $response
-                ->withHeader('Content-Type', 'application/json')
-                ->withStatus(400);
-        }
-
         $from = $request->getQueryParams()['from'] ?? 0;
         $to = $request->getQueryParams()['to'] ?? 1;
 
-        $result = $this->fibonacciService->getFibonacci($from, $to) ?? 'Invalid input numbers';
+        $result = $this->fibonacciService->getFibonacci((int)$from, (int)$to) ?? 'Invalid input numbers';
 
         $payload = json_encode([
             'success' => true,
@@ -46,10 +33,5 @@ class FibonacciController
         return $response
             ->withHeader('Content-Type', 'application/json')
             ->withStatus(200);
-    }
-
-    private function isValid(ServerRequestInterface $request): bool
-    {
-        return true;
     }
 }
