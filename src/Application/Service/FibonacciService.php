@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Service;
 
+use PHP\Math\BigInteger\BigInteger;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
@@ -38,8 +39,8 @@ class FibonacciService
         $result = [$firstNumber, $secondNumber];
 
         for ($i = 2; $i <= $to; $i++) {
-            $nextNumber = $firstNumber + $secondNumber;
-            $result[] = $nextNumber;
+            $nextNumber = (new BigInteger($firstNumber))->add($secondNumber);
+            $result[] = $nextNumber->toString();
 
             $firstNumber = $secondNumber;
             $secondNumber = $nextNumber;

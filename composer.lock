@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9262a929e0519c855bcbb5bfe6c15eb",
+    "content-hash": "a6b9d649f1a6815c701d819dc3e89757",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -446,6 +446,56 @@
                 "source": "https://github.com/PHP-DI/PhpDocReader/tree/2.2.1"
             },
             "time": "2020-10-12T12:39:22+00:00"
+        },
+        {
+            "name": "phpmath/biginteger",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpmath/biginteger.git",
+                "reference": "f978ff144b669a33cc46224ac5c439014acdbc4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpmath/biginteger/zipball/f978ff144b669a33cc46224ac5c439014acdbc4b",
+                "reference": "f978ff144b669a33cc46224ac5c439014acdbc4b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHP\\Math\\BigInteger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Walter Tamboer",
+                    "homepage": "http://www.waltertamboer.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP library to work with big integers.",
+            "keywords": [
+                "BigInteger",
+                "integer",
+                "math"
+            ],
+            "support": {
+                "issues": "https://github.com/phpmath/biginteger/issues",
+                "source": "https://github.com/phpmath/biginteger/tree/master"
+            },
+            "time": "2016-04-18T18:52:19+00:00"
         },
         {
             "name": "psr/cache",
