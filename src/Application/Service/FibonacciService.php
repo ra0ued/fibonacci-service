@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Application\Service;
 
 use PHP\Math\BigInteger\BigInteger;
-use Psr\Cache\InvalidArgumentException;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
@@ -20,9 +19,6 @@ class FibonacciService
         $this->cache = $cache;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function getFibonacci(int $from = 0, int $to = 1): ?string
     {
         if ($from < 0 || $to <= 0 || $to <= $from) {
