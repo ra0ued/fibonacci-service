@@ -12,6 +12,8 @@ Run this command from the directory in which you want to install your new Slim F
 
 ```bash
 git clone https://github.com/ra0ued/fibonacci-service.git
+cd fibonacci-service
+composer install
 ```
 
 You'll want to:
