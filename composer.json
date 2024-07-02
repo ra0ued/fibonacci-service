@@ -21,7 +21,7 @@
         "php": "^8.3",
         "ext-json": "*",
         "ext-gmp": "*",
-        "monolog/monolog": "^2.8",
+        "monolog/monolog": "^3.7",
         "php-di/php-di": "^6.4",
         "phpmath/biginteger": "^1.0",
         "slim/psr7": "^1.7",
